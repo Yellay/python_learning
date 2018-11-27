@@ -1,0 +1,21 @@
+#杨辉三角的实现
+
+def triangles():
+    myList = [1]
+    temp = [1]
+    yield myList
+    while True:
+        for x in range(len(myList) - 1):
+            temp.append(myList[x] + myList[x + 1])
+        myList = temp
+        myList.append(1)
+        temp = [1]
+        yield myList
+
+
+n = 0
+for t in triangles():
+    print(t)
+    n = n + 1
+    if n == 10:
+        break
